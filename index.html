@@ -1,0 +1,450 @@
+<title>Anyela Dávila</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+<style>
+  :root {
+    --ground:        #FAFAF8;
+    --surface:       #FFFFFF;
+    --surface-sunk:  #F2F2EE;
+    --ink:           #18202B;
+    --ink-soft:      #5A616B;
+    --ink-faint:     #8A9099;
+    --rule:          #E2E2DC;
+    --accent:        #1E8E5A;
+    --accent-soft:   #E7F3ED;
+    --warn:          #C77A17;
+    --warn-soft:     #FBF1E2;
+    --crit:          #B3402F;
+    --crit-soft:     #FBEAE7;
+
+    --display: 'Fraunces', Georgia, serif;
+    --body:    'IBM Plex Sans', system-ui, sans-serif;
+    --mono:    'IBM Plex Mono', 'Consolas', monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:       #0E1722;
+      --surface:      #16202D;
+      --surface-sunk: #111A25;
+      --ink:          #EAEDF1;
+      --ink-soft:     #A2AAB6;
+      --ink-faint:    #6E7783;
+      --rule:         #253141;
+      --accent:       #4FBE87;
+      --accent-soft:  #16302440;
+      --warn:         #E0A250;
+      --warn-soft:    #33240F40;
+      --crit:         #E07A67;
+      --crit-soft:    #3A1B1540;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:       #0E1722;
+    --surface:      #16202D;
+    --surface-sunk: #111A25;
+    --ink:          #EAEDF1;
+    --ink-soft:     #A2AAB6;
+    --ink-faint:    #6E7783;
+    --rule:         #253141;
+    --accent:       #4FBE87;
+    --accent-soft:  #16302440;
+    --warn:         #E0A250;
+    --warn-soft:    #33240F40;
+    --crit:         #E07A67;
+    --crit-soft:    #3A1B1540;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-block: 72px 96px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media (max-width: 520px) {
+    .wrap { padding-block: 44px 64px; padding-left: 18px; padding-right: 18px; }
+  }
+
+  /* ---------- encabezado ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(38px, 7vw, 56px);
+    line-height: 1.06;
+    letter-spacing: -.015em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: clamp(18px, 2.6vw, 21px);
+    font-weight: 300;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 52ch;
+    text-wrap: balance;
+  }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 8px 22px;
+    font-family: var(--mono); font-size: 13px;
+    color: var(--ink-faint);
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+  }
+  .meta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  .meta a:hover, .meta a:focus-visible { border-bottom-color: var(--accent); }
+
+  /* ---------- secciones ---------- */
+  section { margin-top: 60px; }
+  h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: -.01em;
+    margin: 0 0 6px;
+  }
+  .sub {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0 0 24px;
+    max-width: 58ch;
+  }
+  p { max-width: 64ch; }
+
+  /* ---------- principios ---------- */
+  .principio {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 0 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .principio:first-of-type { border-top: 1px solid var(--rule); }
+  .tick {
+    width: 21px; height: 21px; margin-top: 3px;
+    border-radius: 50%;
+    border: 1.6px solid var(--accent);
+    position: relative;
+  }
+  .tick::after {
+    content: ''; position: absolute;
+    left: 6.2px; top: 3.6px;
+    width: 5px; height: 9.5px;
+    border: solid var(--accent);
+    border-width: 0 1.8px 1.8px 0;
+    transform: rotate(43deg);
+  }
+  .principio h3 {
+    font-size: 16px; font-weight: 600; margin: 0 0 3px;
+  }
+  .principio p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+  /* ---------- tira de casos ---------- */
+  .casos { border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; background: var(--surface); }
+  .caso {
+    display: grid;
+    grid-template-columns: 108px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 15px;
+  }
+  .caso:last-child { border-bottom: 0; }
+  .caso-id {
+    font-family: var(--mono); font-size: 12.5px;
+    color: var(--ink-faint); letter-spacing: -.01em;
+  }
+  .caso-t { color: var(--ink); }
+  .pill {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 2px; white-space: nowrap;
+  }
+  .p-alta  { background: var(--crit-soft);  color: var(--crit); }
+  .p-media { background: var(--warn-soft);  color: var(--warn); }
+  .p-baja  { background: var(--surface-sunk); color: var(--ink-faint); }
+  @media (max-width: 560px) {
+    .caso { grid-template-columns: 1fr auto; gap: 4px 12px; }
+    .caso-id { grid-column: 1 / -1; }
+  }
+
+  /* ---------- hallazgo destacado ---------- */
+  .hallazgo {
+    background: var(--surface);
+    border-left: 3px solid var(--crit);
+    padding: 22px 24px;
+    border-radius: 0 3px 3px 0;
+  }
+  .hallazgo dl { margin: 0; display: grid; gap: 14px; }
+  .hallazgo dt {
+    font-family: var(--mono); font-size: 11.5px;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 3px;
+  }
+  .hallazgo dd { margin: 0; font-size: 15px; color: var(--ink); }
+
+  /* ---------- herramientas ---------- */
+  .tools { display: grid; gap: 18px; }
+  .tool-row { display: grid; grid-template-columns: 170px 1fr; gap: 6px 18px; }
+  .tool-row dt {
+    font-family: var(--mono); font-size: 12px;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--accent);
+    padding-top: 2px;
+  }
+  .tool-row dd { margin: 0; color: var(--ink-soft); font-size: 15px; }
+  @media (max-width: 560px) { .tool-row { grid-template-columns: 1fr; } }
+
+  /* ---------- repos ---------- */
+  .repo {
+    display: block; text-decoration: none; color: inherit;
+    border: 1px solid var(--rule); border-radius: 3px;
+    padding: 20px 22px; background: var(--surface);
+    margin-bottom: 12px;
+    transition: border-color .15s ease;
+  }
+  .repo:hover, .repo:focus-visible { border-color: var(--accent); }
+  .repo-n { font-family: var(--mono); font-size: 14.5px; color: var(--accent); margin-bottom: 5px; }
+  .repo-d { font-size: 15px; color: var(--ink-soft); }
+
+  .nota {
+    margin-top: 28px; padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px; color: var(--ink-faint);
+    max-width: 64ch;
+  }
+  footer {
+    margin-top: 72px; padding-top: 26px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
+    display: flex; flex-wrap: wrap; gap: 8px 22px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+  <p class="eyebrow">Quality Assurance Engineer</p>
+  <h1>Anyela Dávila</h1>
+  <p class="tagline">
+    Diez años asegurando software en sectores donde un error cuesta caro:
+    banca, hotelería, servicios de traslado y restaurantes.
+  </p>
+  <div class="meta">
+    <span>Valencia, Venezuela</span>
+    <a href="mailto:anyela.kd@gmail.com">anyela.kd@gmail.com</a>
+    <a href="https://www.linkedin.com/in/anyela-davila-9795a0105/">LinkedIn</a>
+  </div>
+
+  <section>
+    <h2>Qué hago</h2>
+    <p class="sub">
+      Aseguro la calidad de plataformas en producción, desde la definición del caso hasta
+      la certificación del cambio.
+    </p>
+    <p>
+      Mi trabajo no es solo encontrar errores. Es decidir qué se reporta, cómo se explica y
+      cuándo un desarrollo está realmente listo para llegar al cliente. Trabajo sobre el
+      producto completo, no sobre un módulo asignado: esa visión transversal es la que
+      permite anticipar cuándo un cambio aparentemente aislado va a afectar otra pantalla.
+    </p>
+
+    <dl class="tools" style="margin-top:22px">
+      <div class="tool-row">
+        <dt>Sectores</dt>
+        <dd>Banca y servicios financieros · Hotelería · Servicios de traslado ·
+        Restaurantes</dd>
+      </div>
+      <div class="tool-row">
+        <dt>Plataformas</dt>
+        <dd>SaaS multi-tenant en producción · Aplicaciones web · Android e iOS ·
+        Integraciones entre sistemas</dd>
+      </div>
+      <div class="tool-row">
+        <dt>Alcance</dt>
+        <dd>Productos con varios canales, varios idiomas y usuarios en distintos países</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Cómo trabajo</h2>
+    <p class="sub">Cuatro criterios que aplico en cada ticket, sin excepción.</p>
+
+    <div class="principio">
+      <div class="tick"></div>
+      <div>
+        <h3>Escribo en lenguaje de negocio</h3>
+        <p>Qué está pasando, qué lo provoca y qué puede provocar si no se atiende. Si no se
+        puede explicar en una frase que entienda alguien de operaciones, el caso se
+        replantea antes de entrar al tablero.</p>
+      </div>
+    </div>
+
+    <div class="principio">
+      <div class="tick"></div>
+      <div>
+        <h3>No doy por verificado lo que no comprobé</h3>
+        <p>La evidencia propia, en pantalla, manda sobre el reporte de un tercero. Un
+        criterio de aceptación se marca cumplido cuando lo vi funcionar, no cuando alguien
+        me dijo que funciona.</p>
+      </div>
+    </div>
+
+    <div class="principio">
+      <div class="tick"></div>
+      <div>
+        <h3>Pienso en regresión desde el principio</h3>
+        <p>Antes de probar un cambio analizo qué otras pantallas o servicios consumen ese
+        dato. Un cambio nunca está contenido en la pantalla donde se hizo.</p>
+      </div>
+    </div>
+
+    <div class="principio">
+      <div class="tick"></div>
+      <div>
+        <h3>Priorizo al usuario sobre el sistema</h3>
+        <p>Cuando la lógica interna y la percepción del usuario no coinciden, gana la
+        experiencia de quien usa el producto todos los días.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Un ejemplo: inicio de sesión</h2>
+    <p class="sub">
+      Ocho casos sobre una pantalla que parece trivial. La prioridad se asigna por impacto
+      en el negocio, no por dificultad técnica.
+    </p>
+
+    <div class="casos">
+      <div class="caso">
+        <span class="caso-id">CP-LOG-001</span>
+        <span class="caso-t">Ingreso con credenciales válidas</span>
+        <span class="pill p-alta">Alta</span>
+      </div>
+      <div class="caso">
+        <span class="caso-id">CP-LOG-002</span>
+        <span class="caso-t">Contraseña incorrecta</span>
+        <span class="pill p-alta">Alta</span>
+      </div>
+      <div class="caso">
+        <span class="caso-id">CP-LOG-003</span>
+        <span class="caso-t">Usuario bloqueado</span>
+        <span class="pill p-alta">Alta</span>
+      </div>
+      <div class="caso">
+        <span class="caso-id">CP-LOG-005</span>
+        <span class="caso-t">Espacios al pegar credenciales</span>
+        <span class="pill p-media">Media</span>
+      </div>
+      <div class="caso">
+        <span class="caso-id">CP-LOG-007</span>
+        <span class="caso-t">Acceso directo por URL sin sesión</span>
+        <span class="pill p-alta">Alta</span>
+      </div>
+      <div class="caso">
+        <span class="caso-id">CP-LOG-008</span>
+        <span class="caso-t">Botón Atrás después de cerrar sesión</span>
+        <span class="pill p-alta">Alta</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cómo reporto un defecto</h2>
+    <p class="sub">
+      Un hallazgo real que salió del caso CP-CAR-007, con el formato que uso a diario.
+    </p>
+
+    <div class="hallazgo">
+      <dl>
+        <div>
+          <dt>Qué está pasando</dt>
+          <dd>Con el carrito vacío, el botón Checkout está habilitado. Se completa el
+          formulario, el resumen muestra $0.00 y la compra se confirma con
+          "Thank you for your order!".</dd>
+        </div>
+        <div>
+          <dt>Qué lo provoca</dt>
+          <dd>Ni el carrito ni el checkout validan que haya al menos un producto antes de
+          avanzar.</dd>
+        </div>
+        <div>
+          <dt>Qué puede provocar</dt>
+          <dd>Órdenes vacías que alguien tiene que detectar y limpiar a mano. Si la
+          confirmación dispara despacho o facturación, se generan envíos o comprobantes
+          sin productos.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <h2>Herramientas</h2>
+    <dl class="tools">
+      <div class="tool-row">
+        <dt>Gestión</dt>
+        <dd>Azure DevOps · Jira · RTC · Trello · OTRS</dd>
+      </div>
+      <div class="tool-row">
+        <dt>Pruebas</dt>
+        <dd>Playwright · Ranorex · DevTools · Dispositivos Android</dd>
+      </div>
+      <div class="tool-row">
+        <dt>Apoyo técnico</dt>
+        <dd>MongoDB · Git · Figma · Adobe XD</dd>
+      </div>
+      <div class="tool-row">
+        <dt>IA aplicada a QA</dt>
+        <dd>Claude · Amazon Q — análisis de tickets y criterios, diseño de casos y
+        recolección de evidencias. La verificación final queda bajo criterio propio.</dd>
+      </div>
+      <div class="tool-row">
+        <dt>Tipos de prueba</dt>
+        <dd>Funcionales · Humo · Integración · Regresión · Aceptación (UAT) ·
+        Exploratorias · Visuales · Multi-idioma · Multi-tenant</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Repositorios</h2>
+
+    <a class="repo" href="https://github.com/anyelakd-ux/plan-de-pruebas-demo">
+      <div class="repo-n">plan-de-pruebas-demo</div>
+      <div class="repo-d">Plan de pruebas completo sobre una tienda pública: 30 casos
+      ejecutados (26 pasan, 4 fallan), 6 hallazgos documentados y análisis de regresión.</div>
+    </a>
+
+    <p class="nota">
+      Los ejemplos publicados están construidos sobre productos públicos de demostración.
+      El trabajo que realizo para mis empleadores es confidencial y no se publica bajo ninguna forma.
+    </p>
+  </section>
+
+  <footer>
+    <span>Anyela Dávila</span>
+    <a href="mailto:anyela.kd@gmail.com">anyela.kd@gmail.com</a>
+    <a href="https://www.linkedin.com/in/anyela-davila-9795a0105/">LinkedIn</a>
+  </footer>
+
+</div>
